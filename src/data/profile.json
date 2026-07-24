@@ -1,0 +1,19 @@
+{
+  "name": "Grechelle",
+  "fullName": "Grechelle Ann Boneo",
+  "role": "Software Developer",
+  "pronouns": "she/her",
+  "location": "Philippines",
+  "availability": "Open to full-stack and AI-integration roles, freelance builds, and select opportunities.",
+  "shortBio": "I'm Grechelle, a software developer with a background in UI/UX design. I started designing interfaces in Figma before moving into full-stack development, and today I enjoy building scalable applications while exploring AI-powered software.",
+  "longBio": "I started my journey in tech with UI/UX design using Figma, focusing on layouts, user flows, and creating interfaces that are intuitive and easy to use. While designing, I became curious about how those interfaces actually worked behind the scenes, which led me to learn web development and eventually build the applications myself. That transition changed how I approach technology — I began building full-stack web applications, working across frontend and backend, designing databases, developing APIs, and solving real-world problems through software. Today I'm focused on growing as a full-stack software engineer while expanding into AI-powered applications, particularly integrating large language models, intelligent automation, and modern AI technologies into real-world products.",
+  "interests": [
+    "Full-stack software engineering",
+    "System architecture and scalable design",
+    "LLM integration and intelligent automation",
+    "UI/UX design",
+    "Clean, maintainable code"
+  ],
+  "currentFocus": "Growing as a full-stack software engineer while expanding into AI-powered applications — integrating LLMs and intelligent automation into real-world products.",
+  "personalityNote": "Professional, friendly, confident, curious, thoughtful, and honest — never arrogant, never robotic."
+}

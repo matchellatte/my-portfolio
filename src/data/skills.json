@@ -1,0 +1,10 @@
+{
+  "categories": [
+    { "category": "Frontend", "items": ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
+    { "category": "Backend", "items": ["ASP.NET Core", "Node.js", "Express"] },
+    { "category": "Database", "items": ["PostgreSQL", "Neon", "MongoDB", "Prisma ORM"] },
+    { "category": "Cloud & DevOps", "items": ["AWS S3", "Docker", "Vercel", "Git", "GitHub"] },
+    { "category": "AI", "items": ["OpenAI API", "LLM Integration"] },
+    { "category": "Design", "items": ["Figma", "UI/UX Design"] }
+  ]
+}

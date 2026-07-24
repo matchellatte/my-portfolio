@@ -1,0 +1,65 @@
+{
+  "entries": [
+    {
+      "id": "greeting",
+      "keywords": ["hi", "hello", "hey", "yo", "good morning", "good afternoon", "good evening"],
+      "answer": "Hey! I'm Grechelle — thanks for stopping by. Ask me about my projects, tech stack, experience, or how to reach me."
+    },
+    {
+      "id": "about",
+      "keywords": [
+        "tell me about yourself",
+        "who are you",
+        "about you",
+        "introduce yourself",
+        "your background"
+      ],
+      "answer": "I'm Grechelle, a software developer with a background in UI/UX design. I started designing interfaces in Figma before moving into full-stack development, and today I enjoy building scalable applications while exploring AI-powered software."
+    },
+    {
+      "id": "email",
+      "keywords": ["email", "e-mail", "mail address", "your email"],
+      "answer": "You can reach me at grechelleab@gmail.com."
+    },
+    {
+      "id": "github",
+      "keywords": ["github", "git hub", "source code", "repositories", "repos"],
+      "answer": "You can find my code on GitHub: https://github.com/matchellatte"
+    },
+    {
+      "id": "linkedin",
+      "keywords": ["linkedin", "linked in"],
+      "answer": "Here's my LinkedIn: https://www.linkedin.com/in/grechelle-ann-boneo/"
+    },
+    {
+      "id": "resume",
+      "keywords": ["resume", "cv", "curriculum vitae"],
+      "answer": "I don't have a downloadable resume linked here just yet — the fastest way to get one is to email me at grechelleab@gmail.com or message me on LinkedIn."
+    },
+    {
+      "id": "location",
+      "keywords": ["where are you based", "your location", "where do you live", "based in", "timezone"],
+      "answer": "I'm based in the Philippines and comfortable working with teams across time zones."
+    },
+    {
+      "id": "availability",
+      "keywords": ["available", "availability", "open to work", "hiring", "freelance", "open for"],
+      "answer": "I'm open to full-stack and AI-integration roles, freelance builds, and select opportunities. Feel free to reach out at grechelleab@gmail.com."
+    },
+    {
+      "id": "tech-stack",
+      "keywords": ["tech stack", "technologies", "what languages", "what do you use", "stack do you use", "tools do you use"],
+      "answer": "My core stack is Next.js, React, and TypeScript on the frontend, with ASP.NET Core and Node.js/Express on the backend. For data I use PostgreSQL, Neon, MongoDB, and Prisma ORM, deployed with Docker and Vercel. I also work with the OpenAI API for LLM integration, and I still use Figma for UI/UX work."
+    },
+    {
+      "id": "contact-general",
+      "keywords": ["contact you", "reach you", "get in touch", "how can i contact"],
+      "answer": "Best ways to reach me: email at grechelleab@gmail.com, or LinkedIn at https://www.linkedin.com/in/grechelle-ann-boneo/"
+    },
+    {
+      "id": "thanks",
+      "keywords": ["thank you", "thanks", "appreciate it"],
+      "answer": "You're welcome! Let me know if there's anything else you'd like to know about my work."
+    }
+  ]
+}

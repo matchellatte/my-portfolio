@@ -1,0 +1,79 @@
+{
+  "projects": [
+    {
+      "slug": "internship-system",
+      "name": "Internship System",
+      "aliases": ["internship system", "unitern", "internship management"],
+      "description": "An AI-assisted web and mobile internship management system with analytics, document handling, and progress tracking.",
+      "technologies": ["TypeScript", "C#", "ASP.NET Core", "OpenAI API"],
+      "features": [
+        "Real-time progress tracking",
+        "Document management",
+        "Calendar scheduling",
+        "Performance evaluation"
+      ],
+      "role": "Built the core web and mobile experience, integrated the OpenAI API for AI-assisted evaluation features, and worked across the ASP.NET Core backend.",
+      "liveUrl": "https://unitern.vercel.app/student/login",
+      "githubUrl": null
+    },
+    {
+      "slug": "erp-system",
+      "name": "Enterprise Resource Planning (ERP)",
+      "aliases": ["erp", "enterprise resource planning", "erp system"],
+      "description": "A comprehensive ERP system for managing business operations and workflows.",
+      "technologies": ["Next.js", "React", "TypeScript", "AWS S3", "Neon", "Prisma ORM"],
+      "features": [
+        "Modular architecture",
+        "Role-based authentication",
+        "Cloud file storage",
+        "Database-driven workflows"
+      ],
+      "role": "Designed the modular architecture, set up authentication, and integrated AWS S3 for cloud file storage alongside a Prisma/Neon data layer.",
+      "liveUrl": null,
+      "githubUrl": null
+    },
+    {
+      "slug": "gown-rental",
+      "name": "Gown Rental",
+      "aliases": ["gown rental", "jiela's gown rental", "gown"],
+      "description": "An e-commerce platform for browsing and renting formal gowns.",
+      "technologies": ["Next.js", "React", "Tailwind CSS"],
+      "features": ["Product catalog", "Availability calendar", "Booking flow", "Customer accounts"],
+      "role": "Built the full storefront, booking flow, and account system end to end.",
+      "liveUrl": "https://jielas-gown-rental.vercel.app",
+      "githubUrl": null
+    },
+    {
+      "slug": "cobeep",
+      "name": "Cobeep",
+      "aliases": ["cobeep", "vaccination tracker"],
+      "description": "A vaccination tracker application.",
+      "technologies": ["React", "Node.js", "MongoDB", "Express", "JWT"],
+      "features": [
+        "Digital vaccination records",
+        "Automated reminders",
+        "Family profiles",
+        "Schedule tracking"
+      ],
+      "role": "Built the full MERN stack app, including JWT-based auth and the reminder scheduling system.",
+      "liveUrl": null,
+      "githubUrl": null
+    },
+    {
+      "slug": "helpr",
+      "name": "Helpr",
+      "aliases": ["helpr", "home service app"],
+      "description": "A home service application connecting customers with trusted providers using blockchain.",
+      "technologies": ["React Native", "Node.js", "Blockchain", "MongoDB"],
+      "features": [
+        "Provider booking",
+        "Blockchain transactions",
+        "Ratings & reviews",
+        "Service history"
+      ],
+      "role": "Built the React Native mobile app and integrated blockchain-based transaction handling.",
+      "liveUrl": null,
+      "githubUrl": null
+    }
+  ]
+}
