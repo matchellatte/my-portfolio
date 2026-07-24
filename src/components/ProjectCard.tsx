@@ -162,7 +162,7 @@ export default function ProjectCard({
               />
             </a>
           )}
-          {project.githubUrl ? (
+          {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
@@ -172,11 +172,6 @@ export default function ProjectCard({
               <Github size={14} />
               GitHub
             </a>
-          ) : (
-            <span className="flex items-center gap-1.5 rounded-md border border-line px-4 py-2 text-sm font-medium text-fg-subtle">
-              <Github size={14} />
-              Private repository
-            </span>
           )}
         </div>
       </div>

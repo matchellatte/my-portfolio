@@ -94,21 +94,21 @@ export default function ProjectDetailPage({
         </div>
 
         <div className="flex shrink-0 flex-wrap gap-3">
-          {project.liveUrl && (
+          {(project.liveUrl || story.caseStudy?.live) && (
             <a
-              href={project.liveUrl}
+              href={project.liveUrl ?? story.caseStudy?.live}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-1.5 rounded-md bg-accent px-4 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent-hover"
             >
-              Live demo
+              {story.caseStudy?.live ? "View prototype" : "Live demo"}
               <ArrowUpRight
                 size={14}
                 className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
             </a>
           )}
-          {project.githubUrl ? (
+          {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
@@ -118,11 +118,6 @@ export default function ProjectDetailPage({
               <Github size={14} />
               GitHub
             </a>
-          ) : (
-            <span className="inline-flex items-center gap-1.5 rounded-md border border-line px-4 py-2 text-sm font-medium text-fg-subtle">
-              <Github size={14} />
-              Private repository
-            </span>
           )}
         </div>
       </div>
@@ -134,6 +129,82 @@ export default function ProjectDetailPage({
         </div>
 
         <div className="space-y-10 lg:order-1">
+          {story.role && (
+            <section>
+              <h2 className="text-lg font-medium text-fg">Role</h2>
+              <p className="mt-3 text-[15px] leading-relaxed text-fg-muted">
+                {story.role}
+              </p>
+            </section>
+          )}
+
+          {story.tasks && story.tasks.length > 0 && (
+            <section>
+              <h2 className="text-lg font-medium text-fg">What I did</h2>
+              <ul className="mt-3 space-y-2.5">
+                {story.tasks.map((task) => (
+                  <li
+                    key={task}
+                    className="flex items-start gap-2.5 text-sm text-fg-muted"
+                  >
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                    {task}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {story.caseStudy && (
+            <section>
+              <h2 className="text-lg font-medium text-fg">Case study</h2>
+              {story.caseStudy.paperTitle && (
+                <p className="mt-3 text-sm font-medium text-fg">{story.caseStudy.paperTitle}</p>
+              )}
+              {story.caseStudy.overview && (
+                <p className="mt-3 text-[15px] leading-relaxed text-fg-muted">
+                  {story.caseStudy.overview}
+                </p>
+              )}
+              {story.caseStudy.abstract && (
+                <p className="mt-3 text-[15px] leading-relaxed text-fg-muted">
+                  {story.caseStudy.abstract}
+                </p>
+              )}
+              {story.caseStudy.tags && story.caseStudy.tags.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {story.caseStudy.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-md border border-line px-2.5 py-1 font-mono text-xs text-fg-muted"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {story.caseStudy.teamMembers && story.caseStudy.teamMembers.length > 0 && (
+                <div className="mt-5 space-y-4">
+                  {story.caseStudy.teamMembers.map((member) => (
+                    <div key={member.name} className="rounded-xl border border-line bg-surface p-4">
+                      <p className="font-medium text-fg">{member.name}</p>
+                      <p className="text-sm text-fg-muted">{member.role}</p>
+                      {member.expertise && (
+                        <p className="mt-2 text-sm text-fg-muted">Expertise: {member.expertise}</p>
+                      )}
+                      {member.contributions && (
+                        <p className="mt-2 text-sm text-fg-muted">Contributions: {member.contributions}</p>
+                      )}
+                      {member.keyLearnings && (
+                        <p className="mt-2 text-sm text-fg-muted">Key learnings: {member.keyLearnings}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
+          )}
+
           <section>
             <h2 className="text-lg font-medium text-fg">Challenge</h2>
             <p className="mt-3 text-[15px] leading-relaxed text-fg-muted">

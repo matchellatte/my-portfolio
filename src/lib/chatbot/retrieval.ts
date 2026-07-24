@@ -41,15 +41,59 @@ export function retrieveContext(result: IntentResult): RetrievedContext {
         data: { availability: profileData.availability, contact: contactData.email },
       };
 
+    case "contact":
+      return { label: "contact", data: contactData };
+
+    case "resume":
+      return {
+        label: "resume",
+        data: {
+          resumeUrl: contactData.resumeUrl,
+          resumeNote: contactData.resumeNote,
+          email: contactData.email,
+          linkedin: contactData.linkedin,
+        },
+      };
+
+    case "greeting":
+      // Small talk doesn't need much — just enough to reply warmly and
+      // naturally in character, without dragging in unrelated data.
+      return {
+        label: "greeting",
+        data: {
+          name: profileData.name,
+          role: profileData.role,
+          shortBio: profileData.shortBio,
+          currentFocus: profileData.currentFocus,
+        },
+      };
+
+    case "off_topic":
+      // Deliberately no portfolio data — nothing here for the model to
+      // ground an in-scope answer in, which is exactly the point. It
+      // declines using the scope rule in the system prompt instead.
+      return { label: "off_topic", data: null };
+
     case "about":
     case "unknown":
     default:
+      // Generous default: enough about Grechelle (bio, focus, interests,
+      // location, skills categories, project names, and contact) that an
+      // unclassified question still gets a real, well-grounded answer
+      // instead of a dead end.
       return {
-        label: "profile",
+        label: "profile+overview",
         data: {
+          name: profileData.name,
+          role: profileData.role,
+          location: profileData.location,
           shortBio: profileData.shortBio,
+          longBio: profileData.longBio,
           currentFocus: profileData.currentFocus,
           interests: profileData.interests,
+          skillCategories: skillsData.categories.map((c) => c.category),
+          projectNames: projectsData.projects.map((p) => p.name),
+          contact: { email: contactData.email, linkedin: contactData.linkedin },
         },
       };
   }

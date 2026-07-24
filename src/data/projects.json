@@ -4,15 +4,19 @@
       "slug": "internship-system",
       "name": "Internship System",
       "aliases": ["internship system", "unitern", "internship management"],
-      "description": "An AI-assisted web and mobile internship management system with analytics, document handling, and progress tracking.",
+      "description": "A full-stack internship and document management platform designed to streamline student, faculty, adviser, and admin workflows in one system.",
       "technologies": ["TypeScript", "C#", "ASP.NET Core", "OpenAI API"],
       "features": [
-        "Real-time progress tracking",
-        "Document management",
-        "Calendar scheduling",
-        "Performance evaluation"
+        "AI-powered chatbot for student and faculty support",
+        "AI-generated evaluation summaries and insights",
+        "Dynamic dashboards for students, faculty, advisers, and admins",
+        "Document upload, review, approval, and audit tracking",
+        "E-signature workflow with secure magic links and PDF-based signing",
+        "Task, requirement, and internship tracking",
+        "Real-time notifications and announcement system",
+        "Responsive web and mobile design"
       ],
-      "role": "Built the core web and mobile experience, integrated the OpenAI API for AI-assisted evaluation features, and worked across the ASP.NET Core backend.",
+      "role": "Lead UI/UX Designer, Lead Full-Stack Developer, and Lead AI Integration Developer. Designed and implemented the web and mobile experience, built document workflows and dashboards, integrated OpenAI-powered chatbot and insight features, and created the e-signature setup and magic-link signing flow.",
       "liveUrl": "https://unitern.vercel.app/student/login",
       "githubUrl": null
     },
@@ -28,7 +32,7 @@
         "Cloud file storage",
         "Database-driven workflows"
       ],
-      "role": "Designed the modular architecture, set up authentication, and integrated AWS S3 for cloud file storage alongside a Prisma/Neon data layer.",
+      "role": "Full-Stack Developer and UI/UX Designer. Started the ERP system foundation, designed the system flow and planned the core workflows, created the UI/UX design, built the frontend and backend features, and integrated cloud-backed file handling with role-based access.",
       "liveUrl": null,
       "githubUrl": null
     },
@@ -36,42 +40,46 @@
       "slug": "gown-rental",
       "name": "Gown Rental",
       "aliases": ["gown rental", "jiela's gown rental", "gown"],
-      "description": "An e-commerce platform for browsing and renting formal gowns.",
+      "description": "A simple storefront for browsing formal gowns and showcasing available pieces on a limited budget.",
       "technologies": ["Next.js", "React", "Tailwind CSS"],
-      "features": ["Product catalog", "Availability calendar", "Booking flow", "Customer accounts"],
-      "role": "Built the full storefront, booking flow, and account system end to end.",
+      "features": ["Product catalog", "Available gowns display", "Responsive browsing UI", "Lightweight Vercel deployment"],
+      "role": "UI/UX Designer and Frontend Developer. Started the project, designed the browsing experience, built the responsive storefront, and kept the system lightweight for Vercel hosting within budget.",
       "liveUrl": "https://jielas-gown-rental.vercel.app",
-      "githubUrl": null
-    },
-    {
-      "slug": "cobeep",
-      "name": "Cobeep",
-      "aliases": ["cobeep", "vaccination tracker"],
-      "description": "A vaccination tracker application.",
-      "technologies": ["React", "Node.js", "MongoDB", "Express", "JWT"],
-      "features": [
-        "Digital vaccination records",
-        "Automated reminders",
-        "Family profiles",
-        "Schedule tracking"
-      ],
-      "role": "Built the full MERN stack app, including JWT-based auth and the reminder scheduling system.",
-      "liveUrl": null,
       "githubUrl": null
     },
     {
       "slug": "helpr",
       "name": "Helpr",
-      "aliases": ["helpr", "home service app"],
-      "description": "A home service application connecting customers with trusted providers using blockchain.",
-      "technologies": ["React Native", "Node.js", "Blockchain", "MongoDB"],
+      "aliases": ["helpr", "home service app", "on-demand home service app"],
+      "description": "A user-centered design case study for an on-demand home service app using blockchain technology.",
+      "technologies": ["Figma", "UX Research", "User-Centered Design", "Blockchain"],
       "features": [
-        "Provider booking",
-        "Blockchain transactions",
-        "Ratings & reviews",
-        "Service history"
+        "User research and usability testing",
+        "High-fidelity UI/UX prototyping",
+        "Blockchain-focused security and transparency",
+        "Academic case study presentation"
       ],
-      "role": "Built the React Native mobile app and integrated blockchain-based transaction handling.",
+      "role": "Lead UI/UX Designer. Conducted user research, developed wireframes and high-fidelity prototypes, performed usability testing, and co-authored the research paper for the case study.",
+      "liveUrl": "https://www.figma.com/proto/tUoxq4TePrwwkLeVzzk871/On-Demand-Home-Service-App?page-id=0%3A1&node-id=80-130&viewport=-1001%2C-302%2C0.5&t=A9oa4HRvZRaLQ1KA-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=80%3A129&show-proto-sidebar=1",
+      "githubUrl": null
+    },
+    {
+      "slug": "linkod-app",
+      "name": "Linkod App",
+      "aliases": ["linkod", "linkod app", "startup competition", "on-demand home service app"],
+      "description": "An AI-powered mobile platform that connects Filipino households with trusted barangay-verified home service providers.",
+      "technologies": ["Figma", "UX Research", "User-Centered Design", "Mobile UI/UX"],
+      "features": [
+        "AI-powered ID verification and fraud detection",
+        "Multi-level verification for system, barangay, and PWD users",
+        "Smart location-based service matching",
+        "Real-time in-app messaging",
+        "Secure digital payments with GCash and Maya",
+        "Ratings and reviews for trust and reliability",
+        "Voice-assisted booking for accessibility",
+        "Reward points for active users"
+      ],
+      "role": "UI/UX Designer. Conducted user research, designed flows and information architecture, created wireframes and high-fidelity prototypes, and designed an accessible mobile experience for voice-assisted booking and inclusivity.",
       "liveUrl": null,
       "githubUrl": null
     }
