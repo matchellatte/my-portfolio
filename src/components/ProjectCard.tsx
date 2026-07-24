@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import type { Project } from "../lib/data";
 
 function CoverPlaceholder({ seed }: { seed: string }) {
@@ -98,19 +99,30 @@ export default function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-      className="grid grid-cols-1 gap-8 border-b border-line py-14 first:pt-0 last:border-b-0 lg:grid-cols-2 lg:gap-16"
+      className="group relative grid grid-cols-1 gap-8 border-b border-line py-14 first:pt-0 last:border-b-0 lg:grid-cols-2 lg:gap-16"
     >
       <div className={reversed ? "lg:order-2" : ""}>
-        <div className="aspect-[16/10] overflow-hidden rounded-lg border border-line">
+        <Link
+          href={`/projects/${project.slug}`}
+          aria-label={`View details for ${project.name}`}
+          className="relative z-10 block aspect-[16/10] overflow-hidden rounded-lg border border-line transition-colors duration-300 group-hover:border-line-strong focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+        >
           <ProjectMedia project={project} />
-        </div>
+        </Link>
       </div>
 
-      <div className={`flex flex-col justify-center ${reversed ? "lg:order-1" : ""}`}>
+      <div className={`relative z-10 flex flex-col justify-center ${reversed ? "lg:order-1" : ""}`}>
         <span className="font-mono text-xs text-fg-subtle">
           {String(index + 1).padStart(2, "0")}
         </span>
-        <h3 className="mt-2 text-2xl font-medium text-fg">{project.name}</h3>
+        <h3 className="mt-2 text-2xl font-medium text-fg">
+          <Link
+            href={`/projects/${project.slug}`}
+            className="transition-colors duration-200 hover:text-accent focus-visible:outline-none focus-visible:text-accent"
+          >
+            {project.name}
+          </Link>
+        </h3>
         <p className="mt-3 text-[15px] leading-relaxed text-fg-muted">
           {project.description}
         </p>

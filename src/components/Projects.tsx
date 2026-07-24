@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { projects } from "../lib/data";
 import ProjectCard from "./ProjectCard";
 
@@ -77,22 +78,33 @@ export default function Projects() {
                   viewport={{ once: true, margin: "-60px" }}
                   variants={fadeUp}
                   custom={0.05 + i * 0.06}
-                  className="group bg-surface p-6 transition-colors duration-300 hover:bg-surface-hover"
+                  className="group"
                 >
-                  <h4 className="font-medium text-fg">{project.name}</h4>
-                  <p className="mt-2 text-sm leading-relaxed text-fg-muted">
-                    {project.description}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {project.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded border border-line px-2 py-0.5 font-mono text-[11px] text-fg-subtle"
-                      >
-                        {tech}
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="flex h-full flex-col bg-surface p-6 transition-colors duration-300 hover:bg-surface-hover"
+                    aria-label={`View details for ${project.name}`}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <h4 className="font-medium text-fg">{project.name}</h4>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-fg-subtle transition-colors group-hover:text-accent">
+                        View details
                       </span>
-                    ))}
-                  </div>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-fg-muted">
+                      {project.description}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded border border-line px-2 py-0.5 font-mono text-[11px] text-fg-subtle"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
