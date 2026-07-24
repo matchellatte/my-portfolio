@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { PawPrint, Send, X } from "lucide-react";
+import Image from "next/image";
 import { useChat } from "../../lib/chatbot/useChat";
 import ChatBubble from "./ChatBubble";
 import SuggestedChips from "./SuggestedChips";
@@ -114,9 +115,11 @@ export default function ChatWidget() {
             {/* Header */}
             <div className="flex items-center gap-3 border-b border-line bg-surface/80 px-4 py-3.5 backdrop-blur">
               <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-line/60">
-                <img
+                <Image
                   src="/chatbot/catbot-profile.jpg"
                   alt="Catbot"
+                  width={36}
+                  height={36}
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -135,14 +138,16 @@ export default function ChatWidget() {
               {messages.length === 0 && (
                 <div className="flex h-full flex-col items-center justify-center px-4 text-center">
                   <div className="mb-3 h-14 w-14 overflow-hidden rounded-full ring-1 ring-line/60">
-                    <img
+                    <Image
                       src="/chatbot/catbot-profile.jpg"
                       alt="Catbot"
+                      width={56}
+                      height={56}
                       className="h-full w-full object-cover"
                     />
                   </div>
                   <p className="text-sm text-fg-muted">
-                    Hi, I'm Catbot!
+                    Hi, I&apos;m Catbot!
                   </p>
                   <p className="mt-1 text-xs text-fg-subtle">
                     Ask me about my projects, tech stack, or experience.

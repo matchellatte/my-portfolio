@@ -33,7 +33,7 @@ export default function Experience() {
           custom={0.05}
           className="max-w-xl text-display-sm font-medium text-fg"
         >
-          Where I've worked.
+          Where I&apos;ve worked.
         </motion.h2>
 
         <div className="relative mt-16 max-w-2xl">

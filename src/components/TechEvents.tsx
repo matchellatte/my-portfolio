@@ -175,7 +175,7 @@ export default function TechEvents() {
             custom={0.05}
             className="text-display-sm font-medium text-fg"
           >
-            Some of the spaces I've been part of.
+            Some of the spaces I&apos;ve been part of.
           </motion.h2>
           <motion.p
             initial="hidden"

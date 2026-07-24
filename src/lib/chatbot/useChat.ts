@@ -58,11 +58,13 @@ export function useChat() {
         );
       }
 
-      historyRef.current = [
+      const nextHistory: ChatMessage[] = [
         ...historyRef.current,
         { role: "user", content: trimmed },
         { role: "assistant", content: full },
-      ].slice(-8);
+      ];
+
+      historyRef.current = nextHistory.slice(-8);
     } catch (err) {
       const messageText =
         err instanceof Error ? err.message : "Something went wrong. Please try again.";

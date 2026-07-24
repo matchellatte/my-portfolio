@@ -1,4 +1,5 @@
 import TypingIndicator from "./TypingIndicator";
+import Image from "next/image";
 
 export default function ChatBubble({
   role,
@@ -16,9 +17,11 @@ export default function ChatBubble({
     <div className={`flex items-end gap-2 ${isUser ? "justify-end" : "justify-start"}`}>
       {!isUser && (
         <div className="mb-1.5 h-8 w-8 shrink-0 overflow-hidden rounded-full ring-1 ring-line/60">
-          <img
+          <Image
             src="/chatbot/catbot-profile.jpg"
             alt="Catbot"
+            width={32}
+            height={32}
             className="h-full w-full object-cover"
           />
         </div>
