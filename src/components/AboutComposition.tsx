@@ -69,7 +69,7 @@ export default function AboutComposition({
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
           className="h-1.5 w-1.5 rounded-full bg-fg-subtle"
         />
-        hover to type
+        
       </div>
 
       {/* Keyboard grid, faded to a square via the mask */}
