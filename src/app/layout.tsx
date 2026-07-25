@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/catpaw-2.svg", type: "image/svg+xml" }],
   },
   formatDetection: {
     email: false,
