@@ -3,8 +3,6 @@ const SUGGESTIONS = [
   "Tech stack",
   "Featured projects",
   "Experience",
-  "Current focus",
-  "AI interests",
   "Contact",
   "Resume",
 ];

@@ -106,20 +106,22 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-bg/98 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-50 bg-bg md:hidden"
           >
-            <div className="section-shell flex h-16 items-center justify-between">
-              <span className="font-mono text-sm text-fg">
-                {siteConfig.name.toLowerCase()}
-                <span className="text-accent">.</span>
-              </span>
-              <button
-                className="text-fg-muted"
-                onClick={() => setOpen(false)}
-                aria-label="Close menu"
-              >
-                <X size={22} />
-              </button>
+            <div className="border-b border-line bg-surface/95 backdrop-blur-md">
+              <div className="section-shell flex h-16 items-center justify-between">
+                <span className="font-mono text-sm text-fg">
+                  {siteConfig.name.toLowerCase()}
+                  <span className="text-accent">.</span>
+                </span>
+                <button
+                  className="text-fg-muted"
+                  onClick={() => setOpen(false)}
+                  aria-label="Close menu"
+                >
+                  <X size={22} />
+                </button>
+              </div>
             </div>
             <motion.ul
               initial="closed"
@@ -140,7 +142,7 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block border-b border-line py-4 text-2xl text-fg-muted"
+                    className="block rounded-xl border border-line bg-surface/95 px-4 py-4 text-2xl text-fg-muted shadow-sm transition-colors hover:border-line-strong hover:text-fg"
                   >
                     {link.label}
                   </a>
