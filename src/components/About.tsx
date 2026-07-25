@@ -3,11 +3,19 @@
 import { motion } from "framer-motion";
 import AboutComposition from "./AboutComposition";
 
-const paragraphs = [
-  "Hi, I'm Grechelle. I started my journey in tech with UI/UX design using Figma, focusing on layouts, user flows, and creating interfaces that are intuitive and easy to use. While designing, I became curious about how those interfaces actually worked behind the scenes, which led me to learn web development and eventually build the applications myself.",
-  "That transition from design to development changed how I approach technology. I began building full-stack web applications, working across frontend and backend, designing databases, developing APIs, and solving real-world problems through software. Along the way, I discovered that I enjoy the engineering side of development the most — thinking through system architecture, writing maintainable code, and building solutions that are scalable and reliable.",
-  "Today, I'm focused on growing as a full-stack software engineer while expanding into AI-powered applications. I'm particularly interested in integrating large language models (LLMs), intelligent automation, and modern AI technologies into real-world products, combining strong software engineering principles with practical AI solutions.",
-  "I enjoy solving meaningful problems, continuously learning new technologies, and collaborating with teams that value clean engineering, thoughtful design, and building products that create real impact.",
+const journey = [
+  {
+    label: "Design",
+    detail: "Started in UI/UX with Figma — layouts, user flows, intuitive interfaces.",
+  },
+  {
+    label: "Development",
+    detail: "Got curious how it all worked, learned to build it myself — full-stack, APIs, databases.",
+  },
+  {
+    label: "AI Engineering",
+    detail: "Now integrating LLMs and intelligent automation into real products.",
+  },
 ];
 
 const fadeUp = {
@@ -46,21 +54,58 @@ export default function About() {
               From design to engineering.
             </motion.h2>
 
-            <div className="mt-8 space-y-5">
-              {paragraphs.map((p, i) => (
-                <motion.p
-                  key={i}
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeUp}
+              custom={0.1}
+              className="mt-6 text-[15px] leading-relaxed text-fg-muted"
+            >
+              I'm Grechelle, a full-stack software engineer who started out
+              designing interfaces — and got curious enough about how they
+              worked to start building them too.
+            </motion.p>
+
+            {/* Scannable journey — replaces the old wall-of-text paragraphs */}
+            <div className="mt-10 space-y-0">
+              {journey.map((step, i) => (
+                <motion.div
+                  key={step.label}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-100px" }}
                   variants={fadeUp}
-                  custom={0.1 + i * 0.06}
-                  className="text-[15px] leading-relaxed text-fg-muted"
+                  custom={0.16 + i * 0.08}
+                  className="group flex gap-4 border-t border-line py-5 first:border-t-0 sm:gap-6"
                 >
-                  {p}
-                </motion.p>
+                  <span className="mt-0.5 shrink-0 font-mono text-xs tabular-nums text-fg-subtle">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-medium text-fg">
+                      {step.label}
+                    </h3>
+                    <p className="mt-1.5 text-[15px] leading-relaxed text-fg-muted">
+                      {step.detail}
+                    </p>
+                  </div>
+                </motion.div>
               ))}
             </div>
+
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeUp}
+              custom={0.4}
+              className="mt-8 text-[15px] leading-relaxed text-fg-muted"
+            >
+              I enjoy solving meaningful problems, learning continuously, and
+              working with teams that care about clean engineering and real
+              impact.
+            </motion.p>
           </div>
 
           <motion.div

@@ -28,6 +28,19 @@ export default function Navbar() {
     };
   }, [open]);
 
+  // Close on Escape, and auto-close if the viewport grows past the mobile breakpoint
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onResize = () => window.innerWidth >= 768 && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [open]);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
@@ -90,11 +103,12 @@ export default function Navbar() {
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
           <button
-            className="text-fg-muted"
+            className="relative flex h-9 w-9 items-center justify-center rounded-md text-fg-muted transition-colors hover:text-fg"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
+            aria-expanded={open}
           >
-            <Menu size={22} />
+            <Menu size={20} />
           </button>
         </div>
       </nav>
@@ -105,50 +119,114 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-bg md:hidden"
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed inset-0 z-50 md:hidden"
           >
-            <div className="border-b border-line bg-surface/95 backdrop-blur-md">
-              <div className="section-shell flex h-16 items-center justify-between">
+            {/* Backdrop */}
+            <motion.div
+              className="absolute inset-0 bg-bg/70 backdrop-blur-md"
+              onClick={() => setOpen(false)}
+            />
+
+            {/* Panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 320, damping: 34 }}
+              className="absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col border-l border-line bg-surface shadow-2xl"
+            >
+              {/* Panel header */}
+              <div className="flex h-16 shrink-0 items-center justify-between border-b border-line px-6">
                 <span className="font-mono text-sm text-fg">
                   {siteConfig.name.toLowerCase()}
                   <span className="text-accent">.</span>
                 </span>
                 <button
-                  className="text-fg-muted"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-fg-muted transition-all duration-200 hover:rotate-90 hover:border-line-strong hover:text-fg"
                   onClick={() => setOpen(false)}
                   aria-label="Close menu"
                 >
-                  <X size={22} />
+                  <X size={18} />
                 </button>
               </div>
-            </div>
-            <motion.ul
-              initial="closed"
-              animate="open"
-              variants={{
-                open: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
-              }}
-              className="section-shell mt-8 flex flex-col gap-2"
-            >
-              {navLinks.map((link) => (
-                <motion.li
-                  key={link.href}
-                  variants={{
-                    closed: { opacity: 0, y: 8 },
-                    open: { opacity: 1, y: 0 },
+
+              {/* Links */}
+              <motion.ul
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={{
+                  open: {
+                    transition: { staggerChildren: 0.045, delayChildren: 0.1 },
+                  },
+                  closed: {
+                    transition: { staggerChildren: 0.03, staggerDirection: -1 },
+                  },
+                }}
+                className="flex flex-1 flex-col justify-center gap-1 px-4"
+              >
+                {navLinks.map((link, i) => {
+                  const id = link.href.replace("#", "");
+                  const isActive = activeId === id;
+                  return (
+                    <motion.li
+                      key={link.href}
+                      variants={{
+                        closed: { opacity: 0, x: 24 },
+                        open: { opacity: 1, x: 0 },
+                      }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    >
+                      <a
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className={`group flex items-center gap-4 rounded-xl px-3 py-3.5 transition-colors duration-200 ${
+                          isActive
+                            ? "text-fg"
+                            : "text-fg-muted hover:text-fg"
+                        }`}
+                      >
+                        <span
+                          className={`font-mono text-xs tabular-nums transition-colors duration-200 ${
+                            isActive ? "text-accent" : "text-fg-subtle group-hover:text-accent"
+                          }`}
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="text-2xl font-medium tracking-tight">
+                          {link.label}
+                        </span>
+                        {isActive && (
+                          <motion.span
+                            layoutId="mobile-nav-active-dot"
+                            className="ml-auto h-1.5 w-1.5 rounded-full bg-accent"
+                          />
+                        )}
+                      </a>
+                    </motion.li>
+                  );
+                })}
+              </motion.ul>
+
+              {/* Panel footer */}
+              <div className="flex shrink-0 items-center justify-between border-t border-line px-6 py-5">
+                <button
+                  onClick={() => {
+                    setOpen(false);
+                    window.dispatchEvent(new CustomEvent("open-command-menu"));
                   }}
+                  className="flex items-center gap-2 rounded-md border border-line bg-bg/60 px-2.5 py-1.5 text-xs text-fg-subtle transition-colors hover:border-line-strong hover:text-fg-muted"
+                  aria-label="Open command menu"
                 >
-                  <a
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="block rounded-xl border border-line bg-surface/95 px-4 py-4 text-2xl text-fg-muted shadow-sm transition-colors hover:border-line-strong hover:text-fg"
-                  >
-                    {link.label}
-                  </a>
-                </motion.li>
-              ))}
-            </motion.ul>
+                  <Command size={13} />
+                  <span className="font-mono">K</span>
+                </button>
+                <span className="font-mono text-xs text-fg-subtle">
+                  {String(navLinks.length).padStart(2, "0")} sections
+                </span>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
