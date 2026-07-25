@@ -5,7 +5,7 @@ export const siteConfig = {
     "Building software with an engineer's mindset and a designer's attention to detail.",
   description:
     "Grechelle is a full-stack software developer specializing in Next.js, TypeScript, and AI-powered applications — bridging product thinking, engineering, and intelligent automation.",
-  url: "https://grechelle.dev",
+  url: "https://grechelleboneo.com",
   email: "grechelleab@gmail.com",
   github: "https://github.com/matchellatte",
   linkedin: "https://www.linkedin.com/in/grechelle-ann-boneo/",
