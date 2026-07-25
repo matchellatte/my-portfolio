@@ -62,7 +62,7 @@ export default function About() {
               custom={0.1}
               className="mt-6 text-[15px] leading-relaxed text-fg-muted"
             >
-              I'm Grechelle, a full-stack software engineer who started out
+              I&rsquo;m Grechelle, a full-stack software engineer who started out
               designing interfaces — and got curious enough about how they
               worked to start building them too.
             </motion.p>

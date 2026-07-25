@@ -42,77 +42,82 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled
-          ? "border-b border-line bg-bg/80 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
-      }`}
-    >
-      <nav className="section-shell flex h-16 items-center justify-between">
-        <a
-          href="#home"
-          className="font-mono text-sm font-medium tracking-tight text-fg"
-        >
-          {siteConfig.name.toLowerCase()}
-          <span className="text-accent">.</span>
-        </a>
-
-        <ul className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => {
-            const id = link.href.replace("#", "");
-            const isActive = activeId === id;
-            return (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className={`relative rounded-md px-3 py-2 text-sm transition-colors duration-200 ${
-                    isActive
-                      ? "text-fg"
-                      : "text-fg-muted hover:text-fg"
-                  }`}
-                >
-                  {link.label}
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-active-indicator"
-                      className="absolute inset-x-3 -bottom-[1px] h-px bg-accent"
-                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                    />
-                  )}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="hidden items-center gap-2 md:flex">
-          <button
-            onClick={() =>
-              window.dispatchEvent(new CustomEvent("open-command-menu"))
-            }
-            className="flex items-center gap-2 rounded-md border border-line bg-surface/60 px-2.5 py-1.5 text-xs text-fg-subtle transition-colors hover:border-line-strong hover:text-fg-muted"
-            aria-label="Open command menu"
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+          scrolled
+            ? "border-b border-line bg-bg/80 backdrop-blur-md"
+            : "border-b border-transparent bg-transparent"
+        }`}
+      >
+        <nav className="section-shell flex h-16 items-center justify-between">
+          <a
+            href="#home"
+            className="font-mono text-sm font-medium tracking-tight text-fg"
           >
-            <Command size={13} />
-            <span className="font-mono">K</span>
-          </button>
-          <ThemeToggle />
-        </div>
+            {siteConfig.name.toLowerCase()}
+            <span className="text-accent">.</span>
+          </a>
 
-        <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
-          <button
-            className="relative flex h-9 w-9 items-center justify-center rounded-md text-fg-muted transition-colors hover:text-fg"
-            onClick={() => setOpen(true)}
-            aria-label="Open menu"
-            aria-expanded={open}
-          >
-            <Menu size={20} />
-          </button>
-        </div>
-      </nav>
+          <ul className="hidden items-center gap-1 md:flex">
+            {navLinks.map((link) => {
+              const id = link.href.replace("#", "");
+              const isActive = activeId === id;
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className={`relative rounded-md px-3 py-2 text-sm transition-colors duration-200 ${
+                      isActive ? "text-fg" : "text-fg-muted hover:text-fg"
+                    }`}
+                  >
+                    {link.label}
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-active-indicator"
+                        className="absolute inset-x-3 -bottom-[1px] h-px bg-accent"
+                        transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                      />
+                    )}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
 
+          <div className="hidden items-center gap-2 md:flex">
+            <button
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent("open-command-menu"))
+              }
+              className="flex items-center gap-2 rounded-md border border-line bg-surface/60 px-2.5 py-1.5 text-xs text-fg-subtle transition-colors hover:border-line-strong hover:text-fg-muted"
+              aria-label="Open command menu"
+            >
+              <Command size={13} />
+              <span className="font-mono">K</span>
+            </button>
+            <ThemeToggle />
+          </div>
+
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              className="relative flex h-9 w-9 items-center justify-center rounded-md text-fg-muted transition-colors hover:text-fg"
+              onClick={() => setOpen(true)}
+              aria-label="Open menu"
+              aria-expanded={open}
+            >
+              <Menu size={20} />
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Rendered as a sibling of <header>, not inside it — if this lived
+          inside <header>, the header's own backdrop-blur (applied once
+          scrolled) would make it the containing block for these
+          position:fixed elements instead of the viewport, breaking the
+          menu's fullscreen coverage exactly when scrolled. */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -182,14 +187,14 @@ export default function Navbar() {
                         href={link.href}
                         onClick={() => setOpen(false)}
                         className={`group flex items-center gap-4 rounded-xl px-3 py-3.5 transition-colors duration-200 ${
-                          isActive
-                            ? "text-fg"
-                            : "text-fg-muted hover:text-fg"
+                          isActive ? "text-fg" : "text-fg-muted hover:text-fg"
                         }`}
                       >
                         <span
                           className={`font-mono text-xs tabular-nums transition-colors duration-200 ${
-                            isActive ? "text-accent" : "text-fg-subtle group-hover:text-accent"
+                            isActive
+                              ? "text-accent"
+                              : "text-fg-subtle group-hover:text-accent"
                           }`}
                         >
                           {String(i + 1).padStart(2, "0")}
@@ -230,6 +235,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
