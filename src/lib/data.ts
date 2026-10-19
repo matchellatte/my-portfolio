@@ -183,10 +183,10 @@ export const experience: ExperienceItem[] = [
     ],
   },
     {
-    role: "Web Developer",
+    role: "Full Stack Developer",
     org: "Freelance",
     location: "Remote",
-    period: "Jan 2024 - Jan 2026",
+    period: "Jan 2023 - Jan 2026",
     description:
       "Built responsive websites and web applications for freelance clients, translating design requirements into polished production-ready interfaces.",
     highlights: ["Next.js", "TypeScript", "Responsive UI", "Frontend Development"],
